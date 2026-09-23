@@ -1,5 +1,5 @@
 body {
-    background-color: white;
+    background-color: lightgray;
     font-family: Arial, sans-serif;
     padding:0;
     margin:0;
@@ -32,7 +32,7 @@ body {
     left: 0px;
     width: 400px;
     height: 100px;
-    background-color:slateblue;
+    background-color:greenyellow;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,10 +90,10 @@ body {
 }
 
 button {
-    color: black;
+    color: white;
     font-size: 10px;
     border-width:1px;
-    border-color:black;
+    border-color:white;
     border-radius: 12px;
     border-style: solid;
     border-width:1px;
@@ -109,7 +109,7 @@ button {
 }
 
 .pad {
-    background-color: lightgray;
+    
     font-size: 38px;
     text-shadow: 1px 1px 4px slategray;
 }
