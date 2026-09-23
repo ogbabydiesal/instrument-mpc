@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/p5@2.3.2/lib/p5.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/p5.sound@0.4.1/dist/p5.sound.min.js"></script>
+</head>
+<body>
+    <div id="mpc">
+        <div id ="screen">
+            <div id="innerScreen">
+                <p id="lcdText"></p>
+                <p id="samplePlaying">the sample i am playing is</p>
+                <p id="delay">DelayAmt: 0.3</p>
+                <p id="fb">FeedbackAmt: 0.3</p>
+                <p id="dDryWet">FeedbackAmt: 0.3</p>
+
+                <p id="reverb">ReverbTime: 0.3</p>
+                <p id="bankText"></p>
+
+            </div>
+        </div>
+        <div id ="configButtons">
+            <button id="bankButton" onclick="switchBank()">bank</button>
+            <button id="bankButton" onclick="goToBank(1)">1</button>
+            <button id="bankButton" onclick="goToBank(2)">2</button>
+            <button id="bankButton" onclick="goToBank(3)">3</button>
+            <button id="bankButton" onclick="goToBank(4)">4</button>
+            <button id="bankButton" onclick="goToBank(5)">5</button>
+            <input type="range">
+            <input type="range">
+            <input type="range">
+        </div>
+        <div id="pads"></div>
+        <div id="sideText" class="monsieur">love angel music baby</div>
+    </div>
+</body> 
+<script src="mpc-instrument.js"></script>   
+</html>
+

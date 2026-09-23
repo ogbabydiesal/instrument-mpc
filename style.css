@@ -1,0 +1,115 @@
+body {
+    background-color: white;
+    font-family: Arial, sans-serif;
+    padding:0;
+    margin:0;
+}
+
+#pads {
+    position: absolute;
+    top:200px;
+    left:12px;
+    width: 600px;
+    height:900px;
+}
+
+#screen {
+    z-index: 1;
+    width:430px;
+    height: 130px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+#innerScreen {
+    z-index: 2;
+    border-radius:12px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    width: 400px;
+    height: 100px;
+    background-color:slateblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 12px;
+    color:black;
+}
+
+#lcdText {
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+
+#samplePlaying {
+    position:absolute;
+    top:0px;
+    left:0px;
+    
+}
+
+#bankText {
+    position:absolute;
+    top:0;
+    left:calc(300px);
+}
+
+.monsieur {
+    font-size: 10vh;
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#sideText {
+    pointer-events: none;
+    z-index:1000;
+    position:absolute;
+    width:100px;
+
+    text-overflow: clip;
+    top:70px;
+    left:390px;
+    writing-mode: vertical-rl;
+    
+    
+}
+
+#configButtons {
+    
+    width:400px;
+    
+}
+
+button {
+    color: black;
+    font-size: 10px;
+    border-width:1px;
+    border-color:black;
+    border-radius: 12px;
+    border-style: solid;
+    border-width:1px;
+    
+}
+
+
+#bankButton {
+    width:auto;
+    margin:8px;
+    border-radius:55px;
+    background-color:transparent;
+}
+
+.pad {
+    background-color: lightgray;
+    font-size: 38px;
+    text-shadow: 1px 1px 4px slategray;
+}
