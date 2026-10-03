@@ -26,8 +26,8 @@ async function setup() {
         delayText.innerHTML = "DelayAmt: " + (delaySlider.value * 1000) + "ms"
     });
     feedbackSlider.addEventListener("input", function() {
-        delay.feedback(feedback.value)
-        fbText.innerHTML = "FeedbackAmt: " + ceil(100) + "%"
+        delay.feedback(feedbackSlider.value)
+        fbText.innerHTML = "FeedbackAmt: " + ceil(feedbackSlider.value * 100) + "%"
     });
 
     wetSlider.addEventListener("input", function() {
