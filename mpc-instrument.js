@@ -126,7 +126,6 @@ function checkKeyPressed(e) {
     }, 100);
 }
 
-
 function goToBank(b) {
     bank = b;
     bankText.innerHTML = `Bank: ${bank}`
