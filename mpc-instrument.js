@@ -56,16 +56,13 @@ async function setup() {
         myPanner.connect(delay);
         players.push(player);
     }
-    
 }
-
-
 
 let padIndex = 0;
 
 function switchBank() {
     bank++;
-    if (bank == banks + 1) { bank = 1 }
+    if (bank == banks ) { bank = 1 }
     try {
         bankText.textContent = `Bank: ${bank}`;
         // Update pad sounds based on the new bank
@@ -87,19 +84,12 @@ for (let i = 0; i < 4; i++) {
         };
         padRender = document.createElement('button');
         padElems.push(padRender);
-        padRender.innerHTML = ''
         padRender.setAttribute('id', pad.id);
         padRender.setAttribute('class', 'pressed, pad')
         document.getElementById('pads').appendChild(padRender);
         padRender.addEventListener('pointerdown', () => {
-            let player = players[pad.playID + (16 * bank)];
-            let panner = panners[pad.playID + (16 * bank)]
-            if (player) {
-                panner.pan((random() * 2) - 1)
-                player.play();
-            }    
+            padPressed(pad);
         });
-
         document.getElementById(pad.id).style.position = 'absolute';
         document.getElementById(pad.id).style.left = `${pad.x + 8}px`;
         document.getElementById(pad.id).style.top = `${pad.y}px`;
@@ -109,6 +99,18 @@ for (let i = 0; i < 4; i++) {
         pads.push(pad);
     }
     bankText.textContent = `Bank: ${bank}`;
+}
+
+function padPressed(pad) {
+    let elem = document.getElementById(pad.id);
+    elem.classList.add('pressed');
+    setTimeout(() => elem.classList.remove('pressed'), 100);
+    let player = players[pad.playID + (16 * bank)];
+    let panner = panners[pad.playID + (16 * bank)]
+    if (player) {
+        panner.pan((random() * 2) - 1)
+        player.play();
+    }   
 }
 
 //keypress stuff

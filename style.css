@@ -1,3 +1,7 @@
+* {
+    touch-action: manipulation;
+}
+
 body {
   background-color: black;
   font-family: Arial, sans-serif;
@@ -9,15 +13,19 @@ body {
 #main {
   display: flex;
   justify-content: center;
-  height:100vh;
-  width:100vw;
+  min-height:100vh;
+  min-height:100dvh;
+  width:100%;
 }
 
 #mpc {
   display: flex;
   flex-direction: column; 
   align-items: center;
-  width:500px;
+  width:min(500px, 100%);
+  padding: 0 12px 24px;
+  box-sizing: border-box;
+  position:relative;
 }
 
 #innerScreen {
@@ -31,7 +39,7 @@ body {
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
   font-size: 12px;
-  background-color:fuchsia;
+  background-color:fuchsia; 
   min-height:200px;
   height:200px;
   border-radius:35px;
@@ -39,13 +47,15 @@ body {
   mask-composite: intersect;
   padding-bottom: 20px;
   padding-top: 20px;
+  filter: invert(100%) contrast(1.2) brightness(1);
 }
 
 #configButtons {
   display: flex;
   flex-wrap:wrap;
+  justify-content: center;
   align-items: center;
-  width:500px;
+  width:100%;
 }
 
 #pads {
@@ -76,12 +86,22 @@ body {
 
 #sideText {
   position:absolute;
-  transform: translateX(80%) translateY(10%);
-  height:fit-content;
-  pointer-events: none;
-  z-index:1000;
-  text-overflow: clip;
+  top:30px;
+  left: auto; 
+  right: 0;         /* hugs the MPC's right edge */
+  font-size: min(10vh, 12vw);  /* scales with width too, not just height */
+  line-height: 1;
+  white-space: nowrap;
   writing-mode: vertical-rl;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#sideText p { margin: 0; }
+
+/* phones: no room beside the MPC, so tuck it inside the right edge */
+@media (max-width: 700px) {
+  #sideText { left: auto; right: 0; }
 }
 
 button {
@@ -98,6 +118,14 @@ button {
 
 button:focus {
   outline:0;
+}
+
+button, input[type=range] {
+  touch-action: manipulation;          /* no double-tap zoom / 300ms delay */
+  -webkit-tap-highlight-color: transparent;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;         /* no long-press menu on iOS */
 }
 
 #bankButton {
@@ -119,7 +147,9 @@ button:focus {
   font-size: 38px;
   text-shadow: 1px 1px 4px slategray;
   background-color: transparent;
-  box-sizing: 2px 2px 4px red;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
 }
 
 input[type="range"]:focus {
@@ -258,4 +288,10 @@ input[type=range]:focus::-ms-fill-lower {
 
 input[type=range]:focus::-ms-fill-upper {
   background: #367ebd;
+}
+
+@media (max-width: 600px) {
+  #innerScreen { min-height: 170px; height: 170px; }
+  #sliders { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; width: 100%; }
+  #sliders input[type=range] { width: 100%; margin: 14px 0; }
 }
