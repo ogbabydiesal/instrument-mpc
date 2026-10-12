@@ -91,7 +91,7 @@ for (let i = 0; i < 4; i++) {
         padRender.setAttribute('id', pad.id);
         padRender.setAttribute('class', 'pressed, pad')
         document.getElementById('pads').appendChild(padRender);
-        padRender.addEventListener('mousedown', () => {
+        padRender.addEventListener('pointerdown', () => {
             let player = players[pad.playID + (16 * bank)];
             let panner = panners[pad.playID + (16 * bank)]
             if (player) {
